@@ -10,13 +10,9 @@ async function copyFolder (pathToFolder, pathToCopy) {
   await fs.promises.rm(pathToCopy, {recursive: true, force: true});
   await fs.promises.mkdir(pathToCopy, {recursive: true});
   const files = await fs.promises.readdir(pathToFolder,);
-  console.log(files);
   files.forEach( (file) => {
-    console.log(file);
     const source = path.join(pathToFolder, file);
     const copy = path.join(pathToCopy, file);
-    console.log(source);
-    console.log(copy);
     fs.promises.copyFile(source, copy);
   });
 }
