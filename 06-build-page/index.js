@@ -16,8 +16,8 @@ async function buildStyles () {
   const writeStreamCSS = fs.createWriteStream(pathToBundleCSS);
 
   const files = await fs.promises.readdir(pathToStyles, {withFileTypes:true});
-  const cssFiles = files.filter(file => file.isFile() && file.name.match(/.css$/));
-  cssFiles.forEach( (file) => {
+  const cssFiles = files.filter(file => file.isFile() && file.name.match(/\.css$/));
+  cssFiles.reverse().forEach( (file) => {
     const pathToSrcFile = path.join(pathToStyles, file.name);
     const readStream = fs.createReadStream(pathToSrcFile, 'utf-8');
     readStream.pipe(writeStreamCSS);

@@ -7,7 +7,7 @@ const writeStream = fs.createWriteStream(pathToBundle);
 
 async function buildStyles (pathToFolder) {  
   const files = await fs.promises.readdir(pathToFolder, {withFileTypes:true});
-  const cssFiles = files.filter(file => file.isFile() && file.name.match(/.css$/));
+  const cssFiles = files.filter(file => file.isFile() && file.name.match(/\.css$/));
   cssFiles.forEach( (file) => {
     const pathToFile = path.join(pathToFolder, file.name);
     addCSS(pathToFile);
@@ -15,7 +15,6 @@ async function buildStyles (pathToFolder) {
 }
 
 async function addCSS(pathToFile) {
-  console.log(pathToFile);
   const readStream = fs.createReadStream(pathToFile, 'utf-8');
   readStream.pipe(writeStream);
 }
