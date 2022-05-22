@@ -3,6 +3,7 @@ const path = require('path');
 
 const pathToFolder = path.join(__dirname, 'secret-folder');
 
+// callbacks
 // fs.readdir(pathToFolder, {withFileTypes:true}, (err, elements) => {
 //   if(err) throw err;
 //   const files = elements.filter(el => el.isFile() === true);

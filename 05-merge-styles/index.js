@@ -16,7 +16,7 @@ async function buildStyles (pathToFolder) {
 
 async function addCSS(pathToFile) {
   console.log(pathToFile);
-  const readStream = await fs.createReadStream(pathToFile, 'utf-8');
+  const readStream = fs.createReadStream(pathToFile, 'utf-8');
   readStream.pipe(writeStream);
 }
  
